@@ -6,5 +6,5 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-	return <main className="flex full-h-layout flex-col items-center justify-between p-24"></main>;
+	return <main className="full-h-layout flex flex-col items-center justify-between p-24"></main>;
 }

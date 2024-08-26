@@ -10,15 +10,15 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
 	return (
-		<main className="flex md:flex-row flex-col full-h-layout items-center px-6 pt-12 md:pt-0">
+		<main className="full-h-layout flex flex-col items-center px-6 pt-12 md:flex-row md:pt-0">
 			<div className="flex flex-col gap-y-6">
-				<h1 className="font-bold text-5xl">It&apos;s empty here</h1>
+				<h1 className="text-5xl font-bold">It&apos;s empty here</h1>
 				<p>Looks like this page can&apos;t be found. Maybe it was moved or renamed.</p>
 				<Button as={NextLink} href={homeRoute} variant="ghost" color="primary" fullWidth={false} className="w-min px-6">
 					Back to home
 				</Button>
 			</div>
-			<div className="flex-shrink-0 lg:w-[500px] md:w-[400px] sm:w-[300px]">
+			<div className="flex-shrink-0 sm:w-[300px] md:w-[400px] lg:w-[500px]">
 				<NotFoundImage />
 			</div>
 		</main>

@@ -44,7 +44,7 @@ export default function Header() {
 				</NavbarBrand>
 			</NavbarContent>
 
-			<NavbarContent className="hidden sm:flex gap-4" justify="center">
+			<NavbarContent className="hidden gap-4 sm:flex" justify="center">
 				{menuItems.map((item, index) => (
 					<NavbarItem isActive={item.current} key={`${index}-${item.href}`}>
 						<Link as={NextLink} href={item.href} aria-current={item.current ? 'page' : 'false'}>
