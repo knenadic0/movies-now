@@ -16,11 +16,41 @@ body {
 
 main.full-h-layout {
 	min-height: calc(100vh - 8rem);
-	@apply max-w-5xl;
+	@apply w-full max-w-5xl;
 }
 
-a:hover {
-	@apply opacity-80 transition-opacity;
+@layer components {
+	.movies-swiper {
+		@apply h-min w-full border-y-1 border-mn-green-3;
+		.swiper-wrapper {
+			@apply h-min py-3;
+
+			.swiper-slide {
+				@apply h-min w-min;
+			}
+		}
+
+		.swiper-button-prev,
+		.swiper-button-next {
+			@apply top-0 mt-3 w-10 bg-black bg-opacity-20 text-white transition-all duration-200;
+			height: calc(100% - 1.5rem);
+		}
+
+		.swiper-button-prev {
+			left: 0;
+		}
+
+		.swiper-button-next {
+			right: 0;
+		}
+
+		&&:hover {
+			.swiper-button-prev,
+			.swiper-button-next {
+				@apply bg-opacity-80;
+			}
+		}
+	}
 }
 
 @layer utilities {
