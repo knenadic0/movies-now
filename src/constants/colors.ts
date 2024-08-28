@@ -1,10 +1,8 @@
 'use client';
 
-import resolveConfig from 'tailwindcss/resolveConfig';
 import tailwindConfig from '../../tailwind.config';
 
-export const tailwindTheme = resolveConfig(tailwindConfig);
-const colors = tailwindConfig.theme!.extend!.colors;
+const colors = (tailwindConfig as any).theme.extend.colors;
 
 export const mnGreen0 = colors['mn-green-0'];
 export const mnGreen1 = colors['mn-green-1'];
