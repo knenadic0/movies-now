@@ -13,7 +13,7 @@ const navigationLinks = [
 	{ name: 'Most watched', href: mostWatchedRoute, current: false },
 ];
 
-export default function Header() {
+const Header = () => {
 	const pathname = usePathname();
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const [menuItems, setMenuItems] = useState(navigationLinks);
@@ -65,4 +65,6 @@ export default function Header() {
 			</NavbarMenu>
 		</Navbar>
 	);
-}
+};
+
+export default Header;

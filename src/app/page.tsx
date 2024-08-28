@@ -1,10 +1,17 @@
-import { appName } from '@constants/strings';
+import HorizontalSlider from '@components/HorizontalSlider';
+import { getTitle } from '@helpers/stringHelper';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-	title: `Home | ${appName}`,
+	title: getTitle('Home'),
 };
 
-export default function Home() {
-	return <main className="full-h-layout flex flex-col items-center justify-between p-24"></main>;
-}
+const Home = () => {
+	return (
+		<main className="full-h-layout flex flex-col px-6 py-12">
+			<HorizontalSlider title="Newest movies" />
+		</main>
+	);
+};
+
+export default Home;
