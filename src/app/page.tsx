@@ -1,16 +1,25 @@
-import HorizontalSlider from '@components/HorizontalSlider';
-import { getTitle } from '@helpers/stringHelper';
-import { Metadata } from 'next';
+'use client';
 
-export const metadata: Metadata = {
-	title: getTitle('Home'),
-};
+import { useGetNewestMovies } from '@adapters/queryAdapter';
+import GenreMovieSlider from '@components/GenreMovieSlider';
+import HorizontalSlider from '@components/HorizontalSlider';
+import Metatags from '@components/Metatags';
+import { genres } from '@constants/genres';
+import { getTitle } from '@helpers/stringHelper';
 
 const Home = () => {
+	const { isLoading: areNewestMoviesLoading, response: newestMoviesResponse } = useGetNewestMovies();
+
 	return (
-		<main className="full-h-layout flex flex-col px-6 py-12">
-			<HorizontalSlider title="Newest movies" />
-		</main>
+		<>
+			<Metatags title={getTitle('Home')} />
+			<main className="full-h-layout flex flex-col gap-y-8 px-6 py-8">
+				<HorizontalSlider title="Newest movies" isLoading={areNewestMoviesLoading} slides={newestMoviesResponse?.results} />
+				{genres.map((genre) => (
+					<GenreMovieSlider genre={genre} key={genre.id} />
+				))}
+			</main>
+		</>
 	);
 };
 

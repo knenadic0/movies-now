@@ -9,7 +9,15 @@ const getOptions = {
 };
 
 export const getNewestMovies = async () => {
-	const response = await fetch(`${movieDBapiUrl}/now_playing?language=en-US&page=1`, getOptions);
+	return await processResponse('movie/now_playing?language=en-US&page=1');
+};
+
+export const getPopularMovies = async (genreId: number) => {
+	return await processResponse(`discover/movie?language=en-US&page=1&sort_by=popularity.desc&with_genres=${genreId}`);
+};
+
+const processResponse = async (params: string) => {
+	const response = await fetch(`${movieDBapiUrl}/${params}`, getOptions);
 	if (!response.ok) {
 		throw new Error('Network response was not ok');
 	}
